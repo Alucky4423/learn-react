@@ -13,7 +13,7 @@ const element = <h1>Hello world!!</h1>;
 
 javascript式を**中括弧**で囲むことでJSXに埋め込むことができます。
 
-> example : **01-embedd.html** 
+> example : **[01-embedd.html](./01-embedd.html)**
 
 ```javascript
 function sum(a, b) {
@@ -60,6 +60,18 @@ const element = <img src={picture.url} />
 ## JSXによるインジェクションの防止
 
 ユーザ入力をJSXに埋め込んでも大丈夫です
+
+> example : **[02-injection.html](./02-injection.html)**
+
+```jsx
+const injection = "<br>";
+const element = <h1>aaaa{injection}bbbb</h1>;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
 
 ReactDOMはレンダリングする前にJSXに埋め込まれた値をエスケープします。
 これにより**XSS**を防ぐことができます。
